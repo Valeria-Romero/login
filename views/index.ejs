@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and registration</title>
+</head>
+<body>
+    <div id="container">
+        <div id="leftpanel">
+            <h1>Registration</h1>
+            <form action="/register" method="post">
+                <h4>First Name: <input type="text" name="firstName"></h4>
+                <h4>Last Name: <input type="text" name="lastName"></h4>
+                <h4>Email: <input type="text" name="email"></h4>
+                <h4>Birthday: <input id="bday" type="date" name="birthday"></h4>
+                <h4>Password: <input id="pad" type="password" name="password"></h4>
+                <h4>Confirm Password: <input  type="password" name="confirm_password"></h4>
+                <input class="fields btn btn-primary" type="submit" value="Register">
+            </form>
+            <% if(messages.registration) { %>
+            <h1><%= messages.registration %></h1>
+            <% } %>
+            <% if(messages.length) { %>
+                <h1><%= messages.length %></h1>
+                <% } %>
+                <% if(messages.email) { %>
+                    <h1><%= messages.email %></h1>
+                    <% } %>
+
+                    <% if(messages.password) { %>
+                        <h1><%= messages.password %></h1>
+                        <% } %>
+        </div>
+        <div id="rightpanel">
+            <h1>Login</h1>
+            <form action="/login" method="post">
+                <h4>Email: <input type="text" name="email"></h4>
+                <h4>Password: <input type="password" name="password"></h4>
+                <input class="fields btn btn-success" type="submit" value="Login">
+            </form>
+        </div>
+        <% if(messages.login) { %>
+            <h1><%= messages.login %></h1>
+        <% } %>
+        <% if(messages.user) { %>
+            <h1><%= messages.user %></h1>
+        <% } %>
+        <% if(messages.wrongpassword) { %>
+            <h1><%= messages.wrongpassword %></h1>
+        <% } %>
+    </div>
+</body>
+</html>
